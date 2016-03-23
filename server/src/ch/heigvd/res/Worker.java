@@ -21,7 +21,7 @@ public class Worker extends Thread {
         BufferedWriter out;
         try {
             in = new BufferedReader(new InputStreamReader(new BufferedInputStream(socket.getInputStream())));
-            out = new BufferedWriter(new OutputStreamWriter(new BufferedOutputStream(socket.getOutputStream())));
+            out = new MessageWriter(new OutputStreamWriter(new BufferedOutputStream(socket.getOutputStream())));
         } catch (IOException e) {
             System.err.println("Could not open streams, exiting");
             return;
