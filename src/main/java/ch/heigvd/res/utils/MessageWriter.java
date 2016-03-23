@@ -14,7 +14,7 @@ public class MessageWriter extends BufferedWriter {
 
     @Override
     public void write(String str) throws IOException {
-        super.write(str);
+        super.write(str + "\n");
         flush();
     }
 }
