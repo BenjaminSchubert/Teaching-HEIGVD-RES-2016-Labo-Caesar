@@ -12,7 +12,7 @@ import java.net.Socket;
 public class TCPClient {
     public static void main(String... args) {
         if(args.length != 2) {
-            System.err.println("[Usage] runclient host port");
+            System.err.println("[Usage] runclient.sh host port");
         }
         String host = args[0];
         int port = Integer.parseInt(args[1]);

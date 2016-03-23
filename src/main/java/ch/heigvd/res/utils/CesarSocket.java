@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.Random;
 
 /**
  * @author Benjamin Schubert and Sathiya Kirushnapillai
@@ -11,6 +12,9 @@ import java.net.Socket;
 public class CesarSocket extends Socket {
     private InputStream in;
     private OutputStream out;
+    private int offsetIn;
+    private int offsetOut;
+    private boolean handshakeDone = false;
 
     public CesarSocket() {
         super();
@@ -22,16 +26,30 @@ public class CesarSocket extends Socket {
         setSendBufferSize(256);
     }
 
+    public void handshake() throws IOException {
+        handshakeDone = true;
+        offsetOut = new Random().nextInt();
+        super.getOutputStream().write(offsetOut);
+
+        offsetIn = super.getInputStream().read();
+    }
+
     public InputStream getInputStream() throws IOException {
         if (in == null) {
-            in = new CesarInputStream(super.getInputStream(), (byte) 12);
+            if(!handshakeDone) {
+                handshake();
+            }
+            in = new CesarInputStream(super.getInputStream(), (byte) offsetIn);
         }
         return in;
     }
 
     public OutputStream getOutputStream() throws IOException {
         if (out == null) {
-            out = new CesarOutputStream(super.getOutputStream(), (byte) 12);
+            if(!handshakeDone) {
+                handshake();
+            }
+            out = new CesarOutputStream(super.getOutputStream(), (byte) offsetOut);
         }
         return out;
     }

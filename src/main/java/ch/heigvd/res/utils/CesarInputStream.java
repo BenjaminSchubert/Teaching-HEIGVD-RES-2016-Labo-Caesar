@@ -3,7 +3,6 @@ package ch.heigvd.res.utils;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
 
 /**
  * @author  Benjamin Schubert and Sathiya Kirushnapillai
@@ -30,11 +29,9 @@ public class CesarInputStream extends FilterInputStream {
     @Override
     public int read(byte[] b, int off, int len) throws IOException {
         int retVal = super.read(b, off, len);
-        System.out.println(Arrays.toString(b));
         for(int i = 0; i < retVal; i++) {
             b[i] = (byte) (b[i] - offset);
         }
-        System.out.println("READ : " + Arrays.toString(b));
         return retVal;
     }
 }
