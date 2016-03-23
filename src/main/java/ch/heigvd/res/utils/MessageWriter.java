@@ -1,4 +1,4 @@
-package res;
+package ch.heigvd.res.utils;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

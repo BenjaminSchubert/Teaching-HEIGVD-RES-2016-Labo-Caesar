@@ -1,4 +1,6 @@
-package res;
+package ch.heigvd.res.client;
+
+import ch.heigvd.res.utils.MessageWriter;
 
 import java.io.*;
 import java.net.Socket;
