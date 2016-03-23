@@ -9,8 +9,7 @@ import java.net.Socket;
  */
 public class TCPServer {
     public static void main(String... s) {
-        try {
-            ServerSocket server = new ServerSocket(8016);
+        try (ServerSocket server = new ServerSocket(8016)){
 
             //noinspection InfiniteLoopStatement
             while(true) {

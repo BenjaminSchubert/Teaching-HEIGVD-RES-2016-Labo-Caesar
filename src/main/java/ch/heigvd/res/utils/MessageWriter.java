@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
- * @author Benjamin Schubert
+ * @author Benjamin Schubert and Sathiya Kirushnapillai
  */
 public class MessageWriter extends BufferedWriter {
     public MessageWriter(Writer out) {

@@ -16,17 +16,22 @@ public class TCPClient {
         String host = args[0];
         int port = Integer.parseInt(args[1]);
 
-        try (Socket socket = new Socket(host, port)){
-            play(socket);
+        try (
+                Socket socket = new Socket(host, port);
+                BufferedReader in = new BufferedReader(new InputStreamReader(
+                        new BufferedInputStream(socket.getInputStream())));
+                MessageWriter out = new MessageWriter(new OutputStreamWriter(
+                        new BufferedOutputStream(socket.getOutputStream())));
+
+        ){
+            play(in, out);
         } catch (IOException e) {
             System.err.println("An error occurred while speaking to the server, exiting");
             System.exit(1);
         }
     }
 
-    private static void play(Socket socket) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(new BufferedInputStream(socket.getInputStream())));
-        MessageWriter out = new MessageWriter(new OutputStreamWriter(new BufferedOutputStream(socket.getOutputStream())));
+    private static void play(BufferedReader in, Writer out) throws IOException {
 
         while(true) {
             System.out.println(in.readLine());
