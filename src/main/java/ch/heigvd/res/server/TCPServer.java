@@ -1,5 +1,7 @@
 package ch.heigvd.res.server;
 
+import ch.heigvd.res.utils.CesarServerSocket;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -9,7 +11,7 @@ import java.net.Socket;
  */
 public class TCPServer {
     public static void main(String... s) {
-        try (ServerSocket server = new ServerSocket(8016)){
+        try (ServerSocket server = new CesarServerSocket(8016)){
 
             //noinspection InfiniteLoopStatement
             while(true) {

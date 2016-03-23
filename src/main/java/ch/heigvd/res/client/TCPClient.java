@@ -1,5 +1,6 @@
 package ch.heigvd.res.client;
 
+import ch.heigvd.res.utils.CesarSocket;
 import ch.heigvd.res.utils.MessageWriter;
 
 import java.io.*;
@@ -17,7 +18,7 @@ public class TCPClient {
         int port = Integer.parseInt(args[1]);
 
         try (
-                Socket socket = new Socket(host, port);
+                Socket socket = new CesarSocket(host, port);
                 BufferedReader in = new BufferedReader(new InputStreamReader(
                         new BufferedInputStream(socket.getInputStream())));
                 MessageWriter out = new MessageWriter(new OutputStreamWriter(

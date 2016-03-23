@@ -25,7 +25,7 @@ public class Worker extends Thread {
         out.write("The value is between 0 and " + max_value + ", yours to guess !");
 
         while(true) {
-            out.write("Enter your number :");
+            out.write("Enter your number: ");
             try {
                 value = Integer.parseInt(in.readLine());
             } catch (NumberFormatException e) {
