@@ -1,6 +1,6 @@
 package ch.heigvd.res.client;
 
-import ch.heigvd.res.utils.CesarSocket;
+import ch.heigvd.res.utils.CesarCipher.CesarSocket;
 import ch.heigvd.res.utils.MessageWriter;
 
 import java.io.*;
@@ -32,6 +32,13 @@ public class TCPClient {
         }
     }
 
+    /**
+     * Plays a game with the server
+     *
+     * @param in: input stream
+     * @param out: output stream
+     * @throws IOException
+     */
     private static void play(BufferedReader in, Writer out) throws IOException {
 
         while(true) {

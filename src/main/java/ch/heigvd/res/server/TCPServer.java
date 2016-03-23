@@ -1,11 +1,13 @@
 package ch.heigvd.res.server;
 
-import ch.heigvd.res.utils.CesarServerSocket;
+import ch.heigvd.res.utils.CesarCipher.CesarServerSocket;
 
 import java.io.IOException;
 import java.net.*;
 
 /**
+ * TCPServer implementation for playing the +/- game
+ *
  * @author Benjamin Schubert and Sathiya Kirushnapillai
  */
 public class TCPServer {

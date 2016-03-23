@@ -1,4 +1,4 @@
-package ch.heigvd.res.utils;
+package ch.heigvd.res.utils.CesarCipher;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,6 +7,8 @@ import java.net.Socket;
 import java.util.Random;
 
 /**
+ * Secure Socket communication implementation using CesarSocket
+ *
  * @author Benjamin Schubert and Sathiya Kirushnapillai
  */
 public class CesarSocket extends Socket {
@@ -26,7 +28,12 @@ public class CesarSocket extends Socket {
         setSendBufferSize(256);
     }
 
-    public void handshake() throws IOException {
+    /**
+     * Connection handshake with the client and the server
+     *
+     * @throws IOException
+     */
+    private void handshake() throws IOException {
         handshakeDone = true;
         offsetOut = new Random().nextInt();
         super.getOutputStream().write(offsetOut);

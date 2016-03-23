@@ -1,4 +1,4 @@
-package ch.heigvd.res.utils;
+package ch.heigvd.res.utils.CesarCipher;
 
 
 import java.io.IOException;
@@ -8,6 +8,9 @@ import java.net.Socket;
 import java.net.SocketException;
 
 /**
+ * A ServerSocket implementation using the Cesar Cipher as
+ * secure protocol around TCP
+ *
  * @author Benjamin Schubert and Sathiya Kirushnapillai
  */
 public class CesarServerSocket extends ServerSocket {

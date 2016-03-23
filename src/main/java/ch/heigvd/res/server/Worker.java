@@ -8,6 +8,8 @@ import java.net.Socket;
 import java.util.Random;
 
 /**
+ * A worker thread to handle the connection to one user
+ *
  * @author Benjamin Schubert and Sathiya Kirushnapillai
  */
 public class Worker extends Thread {
@@ -18,6 +20,13 @@ public class Worker extends Thread {
         this.socket = sSocket;
     }
 
+    /**
+     * Plays the +/- game with the client
+     *
+     * @param in: input stream
+     * @param out: output stream
+     * @throws IOException
+     */
     public void play(BufferedReader in, Writer out) throws IOException {
         int guessMe = new Random().nextInt(max_value);
         int value;

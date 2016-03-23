@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
+ * BufferedWriter to autoflush messages and add EOL
+ * 
  * @author Benjamin Schubert and Sathiya Kirushnapillai
  */
 public class MessageWriter extends BufferedWriter {

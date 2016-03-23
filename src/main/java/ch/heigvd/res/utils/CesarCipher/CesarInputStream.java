@@ -1,18 +1,23 @@
-package ch.heigvd.res.utils;
+package ch.heigvd.res.utils.CesarCipher;
 
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * An inputstream implementing the Cesar Cipher protocol
+ *
  * @author  Benjamin Schubert and Sathiya Kirushnapillai
  */
 public class CesarInputStream extends FilterInputStream {
     private final byte offset;
 
+    /**
+     * @param int: intputstream to wrap.
+     * @param offset: offset to use in the Cesar Cipher
+     */
     protected CesarInputStream(InputStream in, byte offset) {
         super(in);
-
         this.offset = offset;
     }
 
